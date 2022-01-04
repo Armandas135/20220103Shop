@@ -10,16 +10,15 @@
 <div class="container">
     <div>
         <h2 class="shopName">Shop</h2>
-        <div class="shopContainer">
-            <div class="categories">
-                <div class="foodCategory">Food</div>
-                <div class="electronicsCategory">Electronics</div>
-                <div class="furnitureCategory">Furniture</div>
-                <div class="showAllCategories">Show All</div>
-            </div>
-
+        <div class="categories">
+            <div class="foodCategory">Food</div>
+            <div class="electronicsCategory">Electronics</div>
+            <div class="furnitureCategory">Furniture</div>
+            <div class="showAllCategories">Show All</div>
         </div>
-        <div class="addProduct">ADD PRODUCT</div>
+        <div class="shopContainer">
+        </div>
+        <div id="myBtn" class="addProduct">ADD PRODUCT</div>
     </div>
     <div class="d-flex">
         <div class="invAttributes">
@@ -27,8 +26,28 @@
             <h4 class="money"></h4>
             <h4 class="weight"></h4>
         </div>
-
         <div class="inventoryContainer">
+        </div>
+    </div>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="inputs">
+            <p>Enter name</p>
+            <input id="name" placeholder="Name..." type="text">
+            <p>Enter photo link</p>
+            <input id="photo" placeholder="Photo..." type="text">
+            <p>Enter weight</p>
+            <input id="weight" placeholder="Weight..." type="text">
+            <p>Enter price</p>
+            <input id="price" placeholder="Price..." type="text">
+            <p>Enter category</p>
+            <input id="category" placeholder="Category..." type="text">
+            <div></div>
+            <button id="confirmNewProduct" style="margin-top: 20px;">Add product to the list</button>
         </div>
     </div>
 </div>

@@ -71,7 +71,6 @@ let weightTotal = 30;
 const money = document.querySelector(".money");
 const weightCount = document.querySelector(".weight");
 const addProduct = document.querySelector(".addProduct");
-const foodCategory = document.querySelector(".foodCategory");
 money.innerHTML = `Money: ${moneyCount}`;
 weightCount.innerHTML = `Carry weight: ${weightTotal}`;
 function createShopItems(obj) {
@@ -102,6 +101,86 @@ function createShopItems(obj) {
         };
     }
 }
-//
 createShopItems(items);
-//
+// Get the modal
+const modal = document.getElementById("myModal");
+// Get the button that opens the modal
+const btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+// When the user clicks on the button, open the modal
+btn.onclick = function () {
+    modal.style.display = "block";
+};
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+};
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+// Creating a new product
+const addNewProduct = document.getElementById("confirmNewProduct");
+const inputs = document.querySelectorAll("input");
+addNewProduct.onclick = () => {
+    if (inputs[0].value !== "" && inputs[1].value !== "" && inputs[2].value !== "" && inputs[3].value !== "" && inputs[4].value !== "") {
+        items.push({
+            name: inputs[0].value,
+            photo: inputs[1].value,
+            weight: Number(inputs[2].value),
+            price: Number(inputs[3].value),
+            category: inputs[4].value
+        });
+        itemsInShop.innerHTML = "";
+        createShopItems(items);
+    }
+    else {
+        alert("Fill all the information needed");
+    }
+};
+// categories
+const foodCategory = document.querySelector(".foodCategory");
+const electronicsCategory = document.querySelector(".electronicsCategory");
+const furnitureCategory = document.querySelector(".furnitureCategory");
+const showAllCategories = document.querySelector(".showAllCategories");
+foodCategory.onclick = () => {
+    itemsInShop.innerHTML = "";
+    for (const i in items) {
+        if (items[i].category === "food") {
+            const arr = [];
+            arr.push(items[i]);
+            createShopItems(arr);
+        }
+    }
+};
+electronicsCategory.onclick = () => {
+    itemsInShop.innerHTML = "";
+    for (const i in items) {
+        if (items[i].category === "electronics") {
+            const arr = [];
+            arr.push(items[i]);
+            createShopItems(arr);
+        }
+    }
+};
+furnitureCategory.onclick = () => {
+    itemsInShop.innerHTML = "";
+    for (const i in items) {
+        if (items[i].category === "furniture") {
+            const arr = [];
+            arr.push(items[i]);
+            createShopItems(arr);
+        }
+    }
+};
+showAllCategories.onclick = () => {
+    itemsInShop.innerHTML = "";
+    for (const i in items) {
+        const arr = [];
+        arr.push(items[i]);
+        createShopItems(arr);
+    }
+};
