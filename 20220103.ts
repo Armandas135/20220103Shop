@@ -147,16 +147,16 @@ window.onclick = function (event) {
 
 const addNewProduct = document.getElementById("confirmNewProduct")!
 const inputs = document.querySelectorAll("input")
-
+const selector = document.querySelector("select")!
 
 addNewProduct.onclick = () => {
-    if (inputs[0].value !== "" && inputs[1].value !== "" && inputs[2].value !== "" && inputs[3].value !== "" && inputs[4].value !== "") {
+    if (inputs[0].value !== "" && inputs[1].value !== "" && inputs[2].value !== "" && inputs[3].value !== "") {
         items.push({
             name: inputs[0].value,
             photo: inputs[1].value,
             weight: Number(inputs[2].value),
             price: Number(inputs[3].value),
-            category: inputs[4].value
+            category: selector.value
         })
         itemsInShop.innerHTML = ""
         createShopItems(items)
