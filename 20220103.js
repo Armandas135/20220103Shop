@@ -70,7 +70,6 @@ let moneyCount = 300;
 let weightTotal = 30;
 const money = document.querySelector(".money");
 const weightCount = document.querySelector(".weight");
-const addProduct = document.querySelector(".addProduct");
 money.innerHTML = `Money: ${moneyCount}`;
 weightCount.innerHTML = `Carry weight: ${weightTotal}`;
 function createShopItems(obj) {
@@ -147,41 +146,20 @@ const foodCategory = document.querySelector(".foodCategory");
 const electronicsCategory = document.querySelector(".electronicsCategory");
 const furnitureCategory = document.querySelector(".furnitureCategory");
 const showAllCategories = document.querySelector(".showAllCategories");
-foodCategory.onclick = () => {
+function filter(category) {
     itemsInShop.innerHTML = "";
     for (const i in items) {
-        if (items[i].category === "food") {
+        if (items[i].category === category) {
             const arr = [];
             arr.push(items[i]);
             createShopItems(arr);
         }
     }
-};
-electronicsCategory.onclick = () => {
-    itemsInShop.innerHTML = "";
-    for (const i in items) {
-        if (items[i].category === "electronics") {
-            const arr = [];
-            arr.push(items[i]);
-            createShopItems(arr);
-        }
-    }
-};
-furnitureCategory.onclick = () => {
-    itemsInShop.innerHTML = "";
-    for (const i in items) {
-        if (items[i].category === "furniture") {
-            const arr = [];
-            arr.push(items[i]);
-            createShopItems(arr);
-        }
-    }
-};
+}
+foodCategory.onclick = () => filter("food");
+electronicsCategory.onclick = () => filter("electronics");
+furnitureCategory.onclick = () => filter("furniture");
 showAllCategories.onclick = () => {
     itemsInShop.innerHTML = "";
-    for (const i in items) {
-        const arr = [];
-        arr.push(items[i]);
-        createShopItems(arr);
-    }
+    createShopItems(items);
 };

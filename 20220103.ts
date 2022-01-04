@@ -78,7 +78,6 @@ let moneyCount: number = 300
 let weightTotal: number = 30
 const money = document.querySelector(".money")!
 const weightCount = document.querySelector(".weight")!
-const addProduct = document.querySelector(".addProduct")
 
 
 money.innerHTML = `Money: ${moneyCount}`
@@ -118,13 +117,13 @@ createShopItems(items)
 
 
 // Get the modal
-const modal = document.getElementById("myModal");
+const modal: HTMLElement | null = document.getElementById("myModal");
 
 // Get the button that opens the modal
-const btn = document.getElementById("myBtn");
+const btn: HTMLElement | null = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+const span: HTMLElement | null = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
@@ -169,15 +168,15 @@ addNewProduct.onclick = () => {
 
 // categories
 
-const foodCategory = document.querySelector(".foodCategory")
-const electronicsCategory = document.querySelector(".electronicsCategory")
-const furnitureCategory = document.querySelector(".furnitureCategory")
-const showAllCategories = document.querySelector(".showAllCategories")
+const foodCategory: HTMLElement = document.querySelector(".foodCategory")!
+const electronicsCategory: HTMLElement = document.querySelector(".electronicsCategory")!
+const furnitureCategory: HTMLElement = document.querySelector(".furnitureCategory")!
+const showAllCategories: HTMLElement = document.querySelector(".showAllCategories")!
 
-foodCategory.onclick = () => {
+function filter(category: string) {
     itemsInShop.innerHTML = ""
     for (const i in items) {
-        if (items[i].category === "food") {
+        if (items[i].category === category) {
             const arr = []
             arr.push(items[i])
             createShopItems(arr)
@@ -185,36 +184,18 @@ foodCategory.onclick = () => {
     }
 }
 
-electronicsCategory.onclick = () => {
-    itemsInShop.innerHTML = ""
-    for (const i in items) {
-        if (items[i].category === "electronics") {
-            const arr = []
-            arr.push(items[i])
-            createShopItems(arr)
-        }
-    }
-}
 
-furnitureCategory.onclick = () => {
-    itemsInShop.innerHTML = ""
-    for (const i in items) {
-        if (items[i].category === "furniture") {
-            const arr = []
-            arr.push(items[i])
-            createShopItems(arr)
-        }
-    }
-}
+foodCategory.onclick = () => filter("food")
+
+
+electronicsCategory.onclick = () => filter("electronics")
+
+
+furnitureCategory.onclick = () => filter("furniture")
 
 showAllCategories.onclick = () => {
     itemsInShop.innerHTML = ""
-    for (const i in items) {
-        const arr = []
-        arr.push(items[i])
-        createShopItems(arr)
-
-    }
+    createShopItems(items)
 }
 
 
