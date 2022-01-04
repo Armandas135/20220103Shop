@@ -64,3 +64,44 @@ const items = [
         category: "furniture"
     },
 ];
+const itemsInShop = document.querySelector(".shopContainer");
+const inventoryItems = document.querySelector(".inventoryContainer");
+let moneyCount = 300;
+let weightTotal = 30;
+const money = document.querySelector(".money");
+const weightCount = document.querySelector(".weight");
+const addProduct = document.querySelector(".addProduct");
+const foodCategory = document.querySelector(".foodCategory");
+money.innerHTML = `Money: ${moneyCount}`;
+weightCount.innerHTML = `Carry weight: ${weightTotal}`;
+function createShopItems(obj) {
+    for (const shopItem of obj) {
+        const item = document.createElement("itemDiv");
+        itemsInShop.appendChild(item);
+        item.classList.add("itemSlot");
+        const img = document.createElement("img");
+        item.appendChild(img);
+        img.src = shopItem.photo;
+        const name = document.createElement("p");
+        item.appendChild(name);
+        name.innerText = shopItem.name;
+        const weight = document.createElement("p");
+        item.appendChild(weight);
+        weight.innerText = `${shopItem.weight}`;
+        const price = document.createElement("p");
+        item.appendChild(price);
+        price.innerText = `${shopItem.price}`;
+        item.onclick = () => {
+            if (moneyCount >= 0 && moneyCount >= shopItem.price && weightTotal >= 0 && weightTotal >= shopItem.weight) {
+                inventoryItems.appendChild(item.cloneNode(true));
+                weightTotal -= shopItem.weight;
+                weightCount.innerHTML = `Weight left: ${weightTotal}`;
+                moneyCount -= shopItem.price;
+                money.innerHTML = `Money left: ${moneyCount}`;
+            }
+        };
+    }
+}
+//
+createShopItems(items);
+//

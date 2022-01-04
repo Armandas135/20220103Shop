@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+}
+
+.shopContainer {
+    margin-left: 50px;
+    height: 450px;
+    width: 400px;
+    border: 3px solid black;
+    border-radius: 0.5rem;
+    overflow-y: scroll;
+
+}
+.d-flex {
+    display: flex;
+    flex-direction: column;
+}
+.addProduct {
+    margin-left: 50px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    font-size: 38px;
+    width: 400px;
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.shopName {
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.invAttributes {
+    margin-left: 100px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    border-bottom: 3px solid black;
+}
+
+.categories div {
+    cursor: pointer;
+}
+
+.categories div:hover {
+    color: #bb7900;
+}
+
+.itemSlot {
+    height: 60px;
+    width: 95%;
+    justify-content: space-between;
+    display: flex;
+    padding-right: 10px;
+    margin: 3px;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+img {
+    width: 50px;
+}
+
+.itemPhoto {
+    width: 100px;
+    height: 70px;
+    border: 3px solid black;
+}
+
+.itemDescriptions {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.itemDescriptions h6 {
+    margin: 3px;
+    padding: 3px;
+    font-weight: initial;
+}
+
+.inventoryContainer {
+    margin-left: 50px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border: 3px solid black;
+    align-items: center;
+    border-radius: 0.5rem;
+    overflow: scroll;
+}
